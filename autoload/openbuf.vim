@@ -8,9 +8,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 
-unlet! g:openbuf#version  " To reload.
 let g:openbuf#version = str2nr(printf('%2d%02d%03d', 0, 1, 0))
-lockvar g:openbuf#version
 
 " UI functions.  {{{1
 let s:registered = {}
@@ -61,14 +59,12 @@ endfunction
 
 " Config. {{{1
 " default config. {{{2
-unlet! g:openbuf#default_config
 let g:openbuf#default_config = {
 \   'reuse': 'tabpage',
 \   'opener': 'split',
 \   'silent': 0,
 \   'nomanage': 0,
 \ }
-lockvar! g:openbuf#default_config
 
 " config stack. {{{2
 let s:config_stack = []
