@@ -44,7 +44,7 @@ function! openbuf#register(name, openbuf)  " {{{2
     throw 'openbuf: "_" is a reserved name.'
   endif
   if a:openbuf.is_registered() && a:openbuf.name() !=# a:name
-    call openbuf.unregister()
+    call a:openbuf.unregister()
   endif
   if has_key(s:registered, a:name)
     let s:registered[a:name]._config = a:openbuf._config
