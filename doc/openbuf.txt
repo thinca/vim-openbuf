@@ -36,7 +36,7 @@ processing is necessary for this.
 Moreover, there are a lot of methods for opening the buffer.  A work that
 offers the user the ways of customizing this is bother.
 
-This library provides the easy way for doing these.
+This library provides the easy way for doing these stuffs.
 
 
 Requirements:
@@ -66,17 +66,16 @@ openbuf#new([{name} [, {config}]])		*openbuf#new()*
 	Create a new |openbuf-object|.
 
 	{name} is the name of this openbuf.  If this is supplied, the created
-	object is registered to the inner of library, and it can use by name.
+	object is registered and can be used by its name.
 	See also |openbuf-object-name|.
 	The config name is used by customizing.  See |openbuf-customizing|.
 	This is usually the plugin name.
 	If an object with {name} is already registered, update the config.
-	This is completely replaced.
 
 	{config} is a |Dictionary|.  See |openbuf-config| for detail.
 
 openbuf#register({name}, {openbuf})		*openbuf#register()*
-	Register {openbuf} that has already existed.
+	Register {openbuf} that has been already created.
 
 openbuf#get({name})				*openbuf#get()*
 	Return the openbuf object made by |openbuf#new()| beforehand.
