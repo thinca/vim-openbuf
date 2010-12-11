@@ -52,8 +52,8 @@ function! openbuf#register(name, openbuf)  " {{{2
   endif
 endfunction
 
-function! openbuf#get(name)  " {{{2
-  return get(s:registered, a:name)
+function! openbuf#get(name, ...)  " {{{2
+  return get(s:registered, a:name, a:0 ? a:1 : 0)
 endfunction
 
 
