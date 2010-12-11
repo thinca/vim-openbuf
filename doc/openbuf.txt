@@ -62,7 +62,7 @@ g:openbuf#version				*g:openbuf#version*
 ------------------------------------------------------------------------------
 FUNCTIONS					*openbuf-functions*
 
-openbuf#new([{name}][, {config}])		*openbuf#new()*
+openbuf#new([{name} [, {config}]])		*openbuf#new()*
 	Create a new |openbuf-object|.
 
 	{name} is the name of this openbuf.  If this is supplied, the created
