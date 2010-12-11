@@ -69,10 +69,10 @@ let g:openbuf#default_config = {
 " config stack. {{{2
 let s:config_stack = []
 
-function! openbuf#execute_with(config, cmd)  " {{{3
+function! openbuf#execute_with(config, excmd)  " {{{3
   call insert(s:config_stack, a:config)
   try
-    execute cmd
+    execute excmd
   finally
     call remove(s:config_stack, 0)
   endtry

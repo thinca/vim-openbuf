@@ -82,8 +82,8 @@ openbuf#get({name})				*openbuf#get()*
 	Return the openbuf object made by |openbuf#new()| beforehand.
 	Return 0 when an openbuf of the specified {name} was not defined.
 
-openbuf#execute_with({config}, {cmd})		*openbuf#execute_with()*
-	Execute a {cmd} with {config}.  If the {cmd} uses openbuf internally,
+openbuf#execute_with({config}, {excmd})		*openbuf#execute_with()*
+	Execute a {excmd} with {config}.  If the {excmd} uses openbuf internally,
 	{config} is used.  See also |openbuf-config-priority|.
 
 
