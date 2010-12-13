@@ -298,6 +298,9 @@ EXAMPLES					*openbuf-examples*
 ==============================================================================
 CHANGELOG					*openbuf-changelog*
 
+0.2.0	xxxx-xx-xx
+	- Do nothing when the opening buffer has been already opened.
+
 0.1.0	2010-12-06
 	- Initial version.
 

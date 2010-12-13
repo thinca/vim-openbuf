@@ -166,7 +166,11 @@ function! s:Openbuf.open(...)  " {{{2
     if !empty(near)
       execute 'tabnext' near[0]
       execute near[1] 'wincmd w'
-      let opener = 'edit'
+      if buffer is bufnr('%')
+        let buffer = 0
+      else
+        let opener = 'edit'
+      endif
     endif
   endif
 
@@ -176,7 +180,9 @@ function! s:Openbuf.open(...)  " {{{2
 
   let lastbuf = bufnr('$')
 
-  if buffer is ''
+  if buffer is 0
+    " Do nothing.
+  elseif buffer is ''
     execute opener
     enew
   elseif type(buffer) == type('')
