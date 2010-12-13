@@ -83,8 +83,8 @@ openbuf#get({name})				*openbuf#get()*
 	Return 0 when an openbuf of the specified {name} was not defined.
 
 openbuf#execute_with({config}, {excmd})		*openbuf#execute_with()*
-	Execute a {excmd} with {config}.  If the {excmd} uses openbuf internally,
-	{config} is used.  See also |openbuf-config-priority|.
+	Execute a {excmd} with {config}.  If the {excmd} uses openbuf
+	internally, {config} is used.  See also |openbuf-config-priority|.
 
 
 
