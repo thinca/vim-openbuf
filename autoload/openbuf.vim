@@ -220,7 +220,7 @@ function! s:Openbuf.is_managed(bufnr)  " {{{2
 endfunction
 
 function! s:Openbuf.list()  " {{{2
-  return sort(keys(self._bufnrs))
+  return sort(map(keys(self._bufnrs), 'v:val - 0'))
 endfunction
 
 function! s:Openbuf.config(...)  " {{{2
