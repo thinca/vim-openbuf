@@ -12,6 +12,8 @@ unlet! g:openbuf#version  " To reload.
 let g:openbuf#version = str2nr(printf('%2d%02d%03d', 0, 1, 0))
 lockvar g:openbuf#version
 
+let s:is_mswin = has('win16') || has('win32') || has('win64')
+
 " UI functions.  {{{1
 let s:registered = {}
 
@@ -179,6 +181,11 @@ function! s:Openbuf.open(...)  " {{{2
   endif
 
   let lastbuf = bufnr('$')
+
+  if s:is_mswin && type(buffer) == type('')
+    " These characters can not be used for buffer name in MS Windows.
+    let buffer = substitute(buffer, '[*?"|<>]', '', 'g')
+  endif
 
   if buffer is 0
     " Do nothing.
