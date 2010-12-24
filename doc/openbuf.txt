@@ -114,10 +114,14 @@ openbuf.name()					*openbuf-object-name()*
 	Get the name of this openbuf.  If this is an unnamed object, empty
 	string is returned.
 
-openbuf.open([{bufname}][, {config}])		*openbuf-object-open()*
+openbuf.open([{bufname_or_config} ...])		*openbuf-object-open()*
 	Open the buffer.  If a reusable window exists, use it.
 	If a buffer is newly created, 1 is returned.  Otherwise 0 is returned.
 	The opened buffer is added to this openbuf for managing.
+
+	{bufname_or_config} is either {bufname} or {config}.
+	{bufname} is the buffer name.
+	{config} is a |Dictionary| (|openbuf-config|).
 
 openbuf.add({bufnr})				*openbuf-object-add()*
 	Add a buffer to this for managing.  The buffer should exist.
