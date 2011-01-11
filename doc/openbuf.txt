@@ -201,6 +201,7 @@ opener:						*openbuf-config-opener*
 	Examples of commands:
 	|:vertical|, |:leftabove|, |:rightbelow|, |:topleft|, |:botright|,
 	|:edit|, |:split|, |:vsplit|, |:tabedit|
+	The default value is "split".
 
 silent:						*openbuf-config-silent*
 	When this is true, open the buffer with |:silent|.
