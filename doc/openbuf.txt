@@ -80,10 +80,10 @@ openbuf#new([{name_or_config} ...])		*openbuf#new()*
 openbuf#register({name}, {openbuf})		*openbuf#register()*
 	Register {openbuf} that has already existed.
 
-openbuf#get({name} [, {default}])				*openbuf#get()*
+openbuf#get({name} [, {default}])		*openbuf#get()*
 	Return the openbuf object made by |openbuf#new()| beforehand.
 	Return {default} when an openbuf of the specified {name} was not defined.
-    If {default} was omitted, return 0.
+	If {default} was omitted, return 0.
 
 openbuf#execute_with({config}, {excmd})		*openbuf#execute_with()*
 	Execute a {excmd} with {config}.  If the {excmd} uses openbuf
