@@ -1,5 +1,5 @@
 " Open and manage buffers.
-" Version: 0.1.0
+" Version: 0.2.0
 " Author : thinca <thinca+vim@gmail.com>
 " License: Creative Commons Attribution 2.1 Japan License
 "          <http://creativecommons.org/licenses/by/2.1/jp/deed.en>
@@ -9,7 +9,7 @@ set cpo&vim
 
 
 unlet! g:openbuf#version  " To reload.
-let g:openbuf#version = str2nr(printf('%2d%02d%03d', 0, 1, 0))
+let g:openbuf#version = str2nr(printf('%2d%02d%03d', 0, 2, 0))
 lockvar g:openbuf#version
 
 let s:is_mswin = has('win16') || has('win32') || has('win64')

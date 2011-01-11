@@ -1,6 +1,6 @@
 *openbuf.txt*	Open and manage buffers.
 
-Version: 0.1.0
+Version: 0.2.0
 Author : thinca <thinca+vim@gmail.com>
 License: Creative Commons Attribution 2.1 Japan License
          <http://creativecommons.org/licenses/by/2.1/jp/deed.en>
@@ -309,7 +309,7 @@ EXAMPLES					*openbuf-examples*
 ==============================================================================
 CHANGELOG					*openbuf-changelog*
 
-0.2.0	xxxx-xx-xx
+0.2.0	2011-01-11
 	- Added |openbuf-config-openres|.
 	  - Changed the default behavior of |openbuf-object-open()|.
 	- Do nothing when the opening buffer has been already opened.
