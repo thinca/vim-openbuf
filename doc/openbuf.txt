@@ -115,9 +115,10 @@ openbuf.name()					*openbuf-object-name()*
 	string is returned.
 
 openbuf.open([{bufname_or_config} ...])		*openbuf-object-open()*
-	Open the buffer.  If a reusable window exists, use it.
+	Open a buffer.  If a reusable window exists, use it.
 	If a buffer is newly created, 1 is returned.  Otherwise 0 is returned.
 	The opened buffer is added to this openbuf for managing.
+	See |openbuf-config-openres| about return value.
 
 	{bufname_or_config} is either {bufname} or {config}.
 	{bufname} is the buffer name.
@@ -203,6 +204,14 @@ opener:						*openbuf-config-opener*
 	|:vertical|, |:leftabove|, |:rightbelow|, |:topleft|, |:botright|,
 	|:edit|, |:split|, |:vsplit|, |:tabedit|
 	The default value is "split".
+
+openres:					*openbuf-config-openres*
+	Specifies the result of |openbuf-object-open()|.
+	"loaded":	Loaded the opened buffer this time?
+	"newbuf":	Was the opened buffer newly created?
+	"newwin":	Was the window newly opened?
+	otherwise:	A dictionary with above all in member.
+	The default value is "newwin".
 
 silent:						*openbuf-config-silent*
 	When this is true, open the buffer with |:silent|.
@@ -301,6 +310,8 @@ EXAMPLES					*openbuf-examples*
 CHANGELOG					*openbuf-changelog*
 
 0.2.0	xxxx-xx-xx
+	- Added |openbuf-config-openres|.
+	  - Changed the default behavior of |openbuf-object-open()|.
 	- Do nothing when the opening buffer has been already opened.
 	- Removed some characters that cannot be used for the buffer name by
 	  MS Windows.

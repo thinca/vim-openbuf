@@ -67,6 +67,7 @@ unlet! g:openbuf#default_config
 let g:openbuf#default_config = {
 \   'reuse': 'tabpage',
 \   'opener': 'split',
+\   'openres': 'newwin',
 \   'silent': 0,
 \   'nomanage': 0,
 \ }
@@ -151,6 +152,7 @@ endfunction
 function! s:Openbuf.open(...)  " {{{2
   call self.gc()
 
+  let result = {}
   let config = s:Config.new(self, a:000)
   let buffer = config.get('bufname', self.name())
   let opener = config.get('opener')
@@ -167,6 +169,7 @@ function! s:Openbuf.open(...)  " {{{2
     let buffer = self._bufnames[buffer]
   endif
 
+  let result.newwin = 1
   if reuse ==# 'always' || reuse ==# 'tabpage'
     let near = self.nearest(reuse ==# 'tabpage')
     if !empty(near)
@@ -177,6 +180,7 @@ function! s:Openbuf.open(...)  " {{{2
       else
         let opener = 'edit'
       endif
+      let result.newwin = 0
     endif
   endif
 
@@ -192,21 +196,29 @@ function! s:Openbuf.open(...)  " {{{2
   endif
 
   if buffer is 0
+    let result.loaded = 0
     " Do nothing.
   elseif buffer is ''
+    let result.loaded = 1
     execute opener
     enew
   elseif type(buffer) == type('')
+    let result.loaded = !bufloaded(buffer)
     execute opener '`=buffer`'
   else
+    let result.loaded = !bufloaded(buffer)
     execute opener
     execute buffer 'buffer'
   endif
 
+  let result.newbuf = lastbuf < bufnr('%')
+
   if type(buffer) == type('') && !config.get('nomanage')
     call self.add(bufnr('%'), buffer)
   endif
-  return lastbuf < bufnr('%')
+
+  let res = config.get('openres')
+  return has_key(result, res) ? result[res] : result
 endfunction
 
 function! s:Openbuf.add(bufnr, ...)  " {{{2
