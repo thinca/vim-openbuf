@@ -198,6 +198,7 @@ reuse:						*openbuf-config-reuse*
 opener:						*openbuf-config-opener*
 	The command(s) to open a new buffer.  If this value starts with "=",
 	the value is treated as |expr|, and the result becomes the command(s).
+	If the evaluation failed, the default value is used.
 	Examples of commands:
 	|:vertical|, |:leftabove|, |:rightbelow|, |:topleft|, |:botright|,
 	|:edit|, |:split|, |:vsplit|, |:tabedit|
@@ -304,6 +305,7 @@ CHANGELOG					*openbuf-changelog*
 	- Removed some characters that cannot be used for the buffer name by
 	  MS Windows.
 	- |openbuf-object-list()| return a list of number.
+	- Added safety for expr of |openbuf-config-opener|.
 
 0.1.0	2010-12-06
 	- Initial version.

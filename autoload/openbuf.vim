@@ -155,7 +155,11 @@ function! s:Openbuf.open(...)  " {{{2
   let buffer = config.get('bufname', self.name())
   let opener = config.get('opener')
   if opener[0] == '='
-    let opener = eval(opener[1 :])
+    try
+      let opener = eval(opener[1 :])
+    catch
+      let opener = g:openbuf#default_config.opener
+    endtry
   endif
   let reuse = config.get('reuse')
 
