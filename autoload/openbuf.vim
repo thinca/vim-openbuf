@@ -195,21 +195,7 @@ function! s:Openbuf.open(...)  " {{{2
     let buffer = substitute(buffer, '[*?"|<>]', '', 'g')
   endif
 
-  if buffer is 0
-    let result.loaded = 0
-    " Do nothing.
-  elseif buffer is ''
-    let result.loaded = 1
-    execute opener
-    enew
-  elseif type(buffer) == type('')
-    let result.loaded = !bufloaded(buffer)
-    execute opener '`=buffer`'
-  else
-    let result.loaded = !bufloaded(buffer)
-    execute opener
-    execute buffer 'buffer'
-  endif
+  let result.loaded = s:open(buffer, opener)
 
   let result.newbuf = lastbuf < bufnr('%')
 
@@ -322,6 +308,25 @@ unlet! s:type_func s:func
 
 
 " Misc functions. {{{1
+function! s:open(buffer, opener)  " {{{2
+  if a:buffer is 0
+    let loaded = 0
+    " Do nothing.
+  elseif a:buffer is ''
+    let loaded = 1
+    execute a:opener
+    enew
+  elseif type(a:buffer) == type('')
+    let loaded = !bufloaded(a:buffer)
+    execute a:opener '`=a:buffer`'
+  else
+    let loaded = !bufloaded(a:buffer)
+    execute a:opener
+    execute a:buffer 'buffer'
+  endif
+  return loaded
+endfunction
+
 function! s:value(val, self)  " {{{2
   let val = a:val
   while type(val) == type(function('function'))
