@@ -343,6 +343,7 @@ function! s:extend(a, b)  " {{{2
     elseif type(a:a[k]) == d && type(v) == d
       call s:extend(a:a[k], v)
     endif
+    unlet v
   endfor
   return a:a
 endfunction
