@@ -328,22 +328,24 @@ function! s:open(buffer, opener)  " {{{2
 endfunction
 
 function! s:value(val, self)  " {{{2
-  let val = a:val
-  while type(val) == type(function('function'))
-    let val = call(val, [], a:self)
+  let Val = a:val
+  while type(Val) == type(function('function'))
+    let Temp = call(Val, [], a:self)
+    unlet Val
+    let Val = Temp
   endwhile
-  return val
+  return Val
 endfunction
 
 function! s:extend(a, b)  " {{{2
   let d = type({})
-  for [k, v] in items(a:b)
+  for [k, V] in items(a:b)
     if !has_key(a:a, k)
-      let a:a[k] = v
-    elseif type(a:a[k]) == d && type(v) == d
-      call s:extend(a:a[k], v)
+      let a:a[k] = V
+    elseif type(a:a[k]) == d && type(V) == d
+      call s:extend(a:a[k], V)
     endif
-    unlet v
+    unlet V
   endfor
   return a:a
 endfunction
