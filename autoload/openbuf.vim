@@ -133,7 +133,7 @@ function! s:Config.get(name, ...)  " {{{3
       throw 'openbuf: no config: ' . a:name
     endif
   endif
-  return s:value(self.config[a:name], self)
+  return s:value(self.config[a:name], self.openbuf)
 endfunction
 
 
