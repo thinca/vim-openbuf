@@ -268,7 +268,7 @@ CUSTOMIZING					*openbuf-customizing*
 g:openbuf#config				*g:openbuf#config*
 	This ia a dictionary.  The key is basically a |openbuf-object-name|.
 	The value is a |openbuf-config|.
-	The key named "_" is used by all openbuf.
+	The key named "_" is used by all registered openbuf.
 	The first part of the name delimited by "/" can be also specified for
 	the key.
 	For example, the config of key "plugname" is applied to all objects
