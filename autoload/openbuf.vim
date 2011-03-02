@@ -33,7 +33,7 @@ function! openbuf#new(...)  " {{{2
     unlet a
   endfor
   if name != ''
-    call openbuf#register(name, obj)
+    let obj = openbuf#register(name, obj)
   endif
   return obj
 endfunction
