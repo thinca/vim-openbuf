@@ -104,26 +104,18 @@ function! s:Config.initialize(configs)  " {{{3
   endif
 
   if exists('g:openbuf#config') && self.openbuf.is_registered()
-    let user_conf = ['_']
+    let user_configs = ['_']
     let name = split(self.openbuf.name(), '/')
     for i in range(len(name))
-      call insert(user_conf, join(name[: i], '/'))
+      call insert(user_configs, join(name[: i], '/'))
     endfor
 
-    let configs += map(filter(user_conf, 'has_key(g:openbuf#config, v:val)'),
-    \                  'g:openbuf#config[v:val]')
+    let user_config = s:extend_all(map(filter(user_configs,
+    \   'has_key(g:openbuf#config, v:val)'), 'g:openbuf#config[v:val]'))
+    call add(configs, user_config)
   endif
 
-  let configs += [oc, g:openbuf#default_config]
-
-  call map(configs, 'type(v:val) == type("") ? {"bufname": v:val} : v:val')
-
-  let config = {}
-  for c in configs
-    call s:extend(config, c)
-  endfor
-
-  let self.config = config
+  let self.config = s:extend_all(configs + [oc, g:openbuf#default_config])
 endfunction
 
 function! s:Config.get(name, ...)  " {{{3
@@ -336,6 +328,15 @@ function! s:value(val, self)  " {{{2
     let Val = Temp
   endwhile
   return Val
+endfunction
+
+function! s:extend_all(configs)  " {{{2
+  call map(a:configs, 'type(v:val) == type("") ? {"bufname": v:val} : v:val')
+  let config = {}
+  for c in a:configs
+    call s:extend(config, c)
+  endfor
+  return config
 endfunction
 
 function! s:extend(a, b)  " {{{2
