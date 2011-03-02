@@ -54,6 +54,7 @@ function! openbuf#register(name, openbuf)  " {{{2
     let s:registered[a:name] = a:openbuf
     let a:openbuf._name = a:name
   endif
+  return s:registered[a:name]
 endfunction
 
 function! openbuf#get(name, ...)  " {{{2

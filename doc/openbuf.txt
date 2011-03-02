@@ -78,7 +78,7 @@ openbuf#new([{name_or_config} ...])		*openbuf#new()*
 	{config} is a |Dictionary|.  See |openbuf-config| for detail.
 
 openbuf#register({name}, {openbuf})		*openbuf#register()*
-	Register {openbuf} that has already existed.
+	Register {openbuf} that has already existed and return it.
 
 openbuf#get({name} [, {default}])		*openbuf#get()*
 	Return the openbuf object made by |openbuf#new()| beforehand.
@@ -310,6 +310,7 @@ EXAMPLES					*openbuf-examples*
 CHANGELOG					*openbuf-changelog*
 
 0.2.1	xxxx-xx-xx
+	- |openbuf#register()| returns registered one.
 	- Fixed some bugs around config.
 
 0.2.0	2011-01-11
