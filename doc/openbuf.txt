@@ -309,6 +309,9 @@ EXAMPLES					*openbuf-examples*
 ==============================================================================
 CHANGELOG					*openbuf-changelog*
 
+0.2.1	xxxx-xx-xx
+	- Fixed some bugs around config.
+
 0.2.0	2011-01-11
 	- Added |openbuf-config-openres|.
 	  - Changed the default behavior of |openbuf-object-open()|.
