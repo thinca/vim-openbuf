@@ -112,6 +112,9 @@ function! s:Config.initialize(configs)  " {{{3
 
     let user_config = s:extend_all(map(filter(user_configs,
     \   'has_key(g:openbuf#config, v:val)'), 'g:openbuf#config[v:val]'))
+    if has_key(user_config, 'openres')
+      call remove(user_config, 'openres')
+    endif
     call add(configs, user_config)
   endif
 

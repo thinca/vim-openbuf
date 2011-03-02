@@ -212,6 +212,7 @@ openres:					*openbuf-config-openres*
 	"newwin":	Was the window newly opened?
 	otherwise:	A dictionary with above all in member.
 	The default value is "newwin".
+	This can not be used by |g:openbuf#config|.
 
 silent:						*openbuf-config-silent*
 	When this is true, open the buffer with |:silent|.
@@ -310,6 +311,7 @@ EXAMPLES					*openbuf-examples*
 CHANGELOG					*openbuf-changelog*
 
 0.2.1	xxxx-xx-xx
+	- Can not change |openbuf-config-openres| by user.
 	- |openbuf#register()| returns registered one.
 	- Fixed some bugs around config.
 
