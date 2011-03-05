@@ -1,6 +1,6 @@
 *openbuf.txt*	Open and manage buffers.
 
-Version: 0.2.0
+Version: 0.2.1
 Author : thinca <thinca+vim@gmail.com>
 License: Creative Commons Attribution 2.1 Japan License
          <http://creativecommons.org/licenses/by/2.1/jp/deed.en>
@@ -312,7 +312,7 @@ EXAMPLES					*openbuf-examples*
 ==============================================================================
 CHANGELOG					*openbuf-changelog*
 
-0.2.1	xxxx-xx-xx
+0.2.1	2011-03-06
 	- |openbuf#get()| returns all registered openbuf with no argument.
 	- Can not change |openbuf-config-openres| by user.
 	- |openbuf#register()| returns registered one.
