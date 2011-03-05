@@ -67,9 +67,9 @@ openbuf#new([{name_or_config} ...])		*openbuf#new()*
 
 	{name_or_config} is either {name} or {config}.
 
-	{name} is String of the name of this openbuf.  If this is supplied, the created
-	object is registered to the inner of library, and it can use by name.
-	See also |openbuf-object-name|.
+	{name} is String of the name of this openbuf.  If this is supplied,
+	the created object is registered to the inner of library, and it can
+	use by name.  See also |openbuf-object-name|.
 	The config name is used by customizing.  See |openbuf-customizing|.
 	This is usually the plugin name.
 	If an object with {name} is already registered, update the config.
@@ -81,8 +81,8 @@ openbuf#register({name}, {openbuf})		*openbuf#register()*
 	Register {openbuf} that has already existed and return it.
 
 openbuf#get([{name} [, {default}]])		*openbuf#get()*
-	Return the openbuf object made by |openbuf#new()| beforehand.
-	Return {default} when an openbuf of the specified {name} was not defined.
+	Return the openbuf object made by |openbuf#new()| beforehand.  Return
+	{default} when an openbuf of the specified {name} was not defined.
 	If {default} was omitted, return 0.
 	When the argument is not given, return a dictionary that include all
 	registered openbuf.
