@@ -57,8 +57,8 @@ function! openbuf#register(name, openbuf)  " {{{2
   return s:registered[a:name]
 endfunction
 
-function! openbuf#get(name, ...)  " {{{2
-  return get(s:registered, a:name, a:0 ? a:1 : 0)
+function! openbuf#get(...)  " {{{2
+  return a:0 ? get(s:registered, a:1, 2 <= a:0 ? a:2 : 0) : copy(s:registered)
 endfunction
 
 

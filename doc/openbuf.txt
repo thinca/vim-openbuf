@@ -80,10 +80,12 @@ openbuf#new([{name_or_config} ...])		*openbuf#new()*
 openbuf#register({name}, {openbuf})		*openbuf#register()*
 	Register {openbuf} that has already existed and return it.
 
-openbuf#get({name} [, {default}])		*openbuf#get()*
+openbuf#get([{name} [, {default}]])		*openbuf#get()*
 	Return the openbuf object made by |openbuf#new()| beforehand.
 	Return {default} when an openbuf of the specified {name} was not defined.
 	If {default} was omitted, return 0.
+	When the argument is not given, return a dictionary that include all
+	registered openbuf.
 
 openbuf#execute_with({config}, {excmd})		*openbuf#execute_with()*
 	Execute a {excmd} with {config}.  If the {excmd} uses openbuf
@@ -311,6 +313,7 @@ EXAMPLES					*openbuf-examples*
 CHANGELOG					*openbuf-changelog*
 
 0.2.1	xxxx-xx-xx
+	- |openbuf#get()| returns all registered openbuf with no argument.
 	- Can not change |openbuf-config-openres| by user.
 	- |openbuf#register()| returns registered one.
 	- Fixed some bugs around config.
